@@ -37,7 +37,7 @@ const App = () => {
         {/* <Header car={state.car} /> */}
         <Header />
         {/* <AddedFeatures car={state.car} /> */}
-        {/* <AddedFeatures /> */}
+        <AddedFeatures />
       </div>
       <div className="box">
         {/* <AdditionalFeatures additionalFeatures={state.additionalFeatures} /> */}
