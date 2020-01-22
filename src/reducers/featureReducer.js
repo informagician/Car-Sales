@@ -19,12 +19,33 @@ const initialState = {
     console.log('Reducer Invoked', state, action)
       switch (action.type) {
         case 'BUY_ITEM':
-          console.log('Reducer')
+          console.log('BUY_ITEM')
           return {
             ...state,
             car: {
               ...state.car,
-              features: [...state.car.features, action.payload]
+              //price: state.car.price + action.payload.price,...state.car.features, action.payload
+              features: [
+                ...state.car.features,
+                // state.car.features.filter(i => {
+                //   if(i && i.id != action.payload.id){
+                //     return action.payload;
+                //   }
+                // })
+                action.payload
+              ]
+            }
+          }
+        case 'REMOVE_ITEM':
+          console.log('REMOVE_ITEM')
+          return {
+            ...state,
+            car: {
+              ...state.car,
+              features:
+                state.car.features.filter(item => {
+                  return item.id != action.payload.id
+                })
             }
           }
         default:
