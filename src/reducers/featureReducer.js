@@ -22,12 +22,13 @@ const initialState = {
           console.log('BUY_ITEM')
           return {
             ...state,
+            additionalPrice: state.additionalPrice + action.payload.price,
             car: {
               ...state.car,
               //price: state.car.price + action.payload.price,...state.car.features, action.payload
               features: [
                 ...state.car.features,
-                // state.car.features.filter(i => {
+                // ...state.car.features.filter(i => {
                 //   if(i && i.id != action.payload.id){
                 //     return action.payload;
                 //   }
@@ -40,6 +41,7 @@ const initialState = {
           console.log('REMOVE_ITEM')
           return {
             ...state,
+            additionalPrice: state.additionalPrice - action.payload.price,
             car: {
               ...state.car,
               features:
