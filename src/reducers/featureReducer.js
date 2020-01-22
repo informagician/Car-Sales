@@ -16,7 +16,17 @@ const initialState = {
   };
 
   export const reducer = (state = initialState, action) => {
+    console.log('Reducer Invoked', state, action)
       switch (action.type) {
+        case 'BUY_ITEM':
+          console.log('Reducer')
+          return {
+            ...state,
+            car: {
+              ...state.car,
+              features: [...state.car.features, action.payload]
+            }
+          }
         default:
           return state;
       }
